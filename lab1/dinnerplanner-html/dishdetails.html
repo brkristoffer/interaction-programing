@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dinner planner</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
+</head>
+<body>
+  <div class="jumbotron">
+    <h1 style="text-align:center;">Dinner planner</h1>
+    <!--<div id="exampleView">
+    <div>
+    Number of guests: <span id="numberOfGuests"></span>
+  </div>
+  <div>
+  <button id="minusGuest" type="button"class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
+  <button id="plusGuest" type="button"class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+</div>
+</div>-->
+</div>
+
+<div id="sidebarView" class="col-sm-3">
+  <div class="sidebar-nav">
+    <div class="navbar navbar-default" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+          <span class="glyphicon glyphicon-menu-hamburger"></span>
+        </button>
+        <span class="visible-xs navbar-brand">My dinner</span>
+      </div>
+      <div class="navbar-collapse collapse sidebar-navbar-collapse">
+        <ul class="nav nav nav-stacked">
+          <br></br>
+          <li class="active">
+            <h4>Number of guests:</h4>
+            <div class="input-group number-spinner col-xs-1 left">
+              <span class="input-group-addon"id="numberOfGuests"></span>
+
+              <span class="input-group-btn">
+                <button id="minusGuest" type="button"class="btn btn-default"><span class="glyphicon glyphicon-minus"></span></button>
+              </span>
+              <span class="input-group-btn">
+                <button id="plusGuest" type="button"class="btn btn-default"><span class="glyphicon glyphicon-plus"></span></button>
+              </span>
+            </div>
+
+          </li>
+          <br></br>
+          <div class="col-xs-12" style="background-color:lightgrey;">
+            <div class="col-xs-8" style="font-size: 8pt;">Dish name</div>
+            <div class="col-xs-4" style="font-size: 8pt;">Cost</div>
+          </div>
+          <li>
+            dwknn
+          </li>
+          <br></br>
+
+          <li class="active" style="text-align:right;"><span id="sekTot"></span> SEK </li>
+          <br></br>
+
+          <li><button type="button"class="btn btn-default col-xs-12">Confirm dinner</button></li>
+          <li></li>
+          <br></br>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>
+
+
+
+
+<div id="dishdetailView" class="col-sm-9">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <div class="panel panel-default">
+  <div class="panel-body"><h3>French toast</h3></div>
+</div>
+      <a href='#' class='thumbnail'>
+        <img src="images/toast.jpg">
+        <div class='caption'>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis varius nisi, eu scelerisque ex. Cras faucibus posuere erat eu auctor. Integer molestie nulla quam, at ultrices neque maximus eu. In non risus at dolor sollicitudin euismod. In vel est non ipsum pellentesque aliquet gravida nec risus. Praesent nisi ligula, tristique vitae aliquet a, venenatis nec elit. Suspendisse orci massa, venenatis vitae magna in, finibus pretium quam. Curabitur sit amet facilisis libero.
+        </div>
+      </a>
+
+      <button type="button"class="btn btn-warning col-xs-6">Back to search</button>
+
+      <br></br>
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+      <div class="panel panel-warning">
+        <div class="panel-heading">  Ingredients for 3 persons</div>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Amount</th>
+              <th>Ingredient</th>
+              <th></th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>5</td>
+              <td>Kaka</td>
+              <td>SEK</td>
+              <td>14.00</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>Banana</td>
+              <td>SEK</td>
+              <td>3.00</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Köttbulle</td>
+              <td>SEK</td>
+              <td>13.00</td>
+            </tr>
+          </tbody>
+        </table>
+        <hr>
+        <div class="footer">
+          <button type="button"class="btn btn-warning col-xs-6">Add to menu</button>
+          <div id="totcost" class="col-xs-6" style="text-align:right;">  TOT 5.00 </div>
+        </div>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+
+    <div class="panel panel-default ">
+      <div class="panel-heading"><h3 class="panel-title">French toast</h3></div>
+    <div class="panel-body">In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.
+</div>
+  </div>
+
+</div>
+
+
+
+
+
+
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery.js"></script>
+<!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+<script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+<!-- The application JavaScript code -->
+
+
+<!-- TODO: Here you should include JS code for your other views -->
+
+
+</body>
+</html>
