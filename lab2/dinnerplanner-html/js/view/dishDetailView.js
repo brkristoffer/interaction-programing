@@ -1,4 +1,4 @@
-var DishDetailView = function(container, model){
+var DishDetailView = function(container, model, app){
 
 
 
@@ -7,14 +7,15 @@ var DishDetailView = function(container, model){
   this.addtomenu = container.find("#addtomenu");
 
 
-  this.update = function(id){
+  this.update = function(){
     var dishIngredients = container.find("#dishIngredients");
     var img = container.find("#img");
     var dishCaption = container.find("#dishCaption");
     var headingName = container.find("#headingName");
     var dishDescription = container.find("#dishDescription");
     var numberOfGuestsIngredients = container.find("#numberOfGuestsIngredients");
-    console.log(id);
+    var id = app.id;
+      //console.log(app.id);
       var dish = model.getDish(id);
       var dishName = dish.name;
       var dishPrice = model.getDishPrice(id);

@@ -2,9 +2,6 @@ var SidebarView = function (container, model) {
 //  var numberOfGuests = container.find("#numberOfGuests");
 //  var model = new DinnerModel(numberOfGuests, );
 
-var numberOfGuests = container.find("#numberOfGuests");
-var totSek = container.find("#sekTot");
-var menuDish = container.find("#menuDish");
 
 
 this.minusButton = container.find("#minusGuest");
@@ -12,6 +9,10 @@ this.plusButton = container.find("#plusGuest");
 
 
 this.update = function(){
+  var numberOfGuests = container.find("#numberOfGuests");
+  var totSek = container.find("#sekTot");
+  var menuDish = container.find("#menuDish");
+
   numberOfGuests.html(model.getNumberOfGuests());
   totSek.html(model.getTotalMenuPrice());
   //this.displayMenu();
@@ -30,11 +31,9 @@ this.update = function(){
 
 
 
-
-
 }
-//this.update();
-//console.log(this);
+
+console.log(this.update);
 model.addObserver(this.update);
 
 // var starter = "starter";

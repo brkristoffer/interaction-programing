@@ -1,10 +1,8 @@
-var DishView= function (container, model) {
+var DishView= function (container, model, app) {
 
-  var dishItemView = new DishItemView(container,model);
-  var dishItenC = new DishItemController(dishItemView, model);
 
   this.update = function(type, filter){
-     var myHTML = '';
+    //container.html("");
      if(type == "all"){
 
        for(i in model.getFullMenu()){
@@ -12,8 +10,18 @@ var DishView= function (container, model) {
          var image = model.getFullMenu()[i].image;
          var id = model.getFullMenu()[i].id;
 
-         myHTML += "<div id='dishBox'class='col-sm-12 col-md-3'><a id='"+id+"'href='#' class='thumbnail'> <img src='images/"+image+"' alt='...'><div class='caption'> <p style='text-align: center; font-size:9pt;'>"+name+"</p></div></a></div>";
+         //myHTML += "<div id='dishBox'class='col-sm-12 col-md-3'><a id='"+id+"'href='#' class='thumbnail'> <img src='images/"+image+"' alt='...'><div class='caption'> <p style='text-align: center; font-size:9pt;'>"+name+"</p></div></a></div>";
+         //var selector = $("#dishBox a");
+         //var dishId = container.find(selector.attr("id"));
+         //console.log(dishId);
+         //dishId.attr('id');
+         //console.log(i);
+         var dishItemView = new DishItemView(container, model, name, image, id);
+         var dishItenC = new DishItemController(dishItemView, model, app);
+
+
        }
+
      }
      else{
 
@@ -22,16 +30,21 @@ var DishView= function (container, model) {
          var image = model.getAllDishes(type, filter)[i].image;
          var id = model.getAllDishes(type, filter)[i].id;
 
-         myHTML += "<div id='dishBox'class='col-sm-12 col-md-3'><a id='"+id+"'href='#' class='thumbnail'> <img src='images/"+image+"' alt='...'><div class='caption'> <p style='text-align: center; font-size:9pt;'>"+name+"</p></div></a></div>";
+        // myHTML += "<div id='dishBox'class='col-sm-12 col-md-3'><a id='"+id+"'href='#' class='thumbnail'> <img src='images/"+image+"' alt='...'><div class='caption'> <p style='text-align: center; font-size:9pt;'>"+name+"</p></div></a></div>";
+         //var dishId = container.find("#dishBox a");
+         //console.log(dishId);
+         var dishItemView = new DishItemView(container, model, name, image, id);
+        
+         var dishItenC = new DishItemController(dishItemView, model, app);
+
        }
+
      }
     // console.log(this);
 
-  container.html(myHTML);
-  //console.log(this.dishId);
+
+
  }
- this.update();
- this.dishId = container.find("#dishBox a");
 
 
   //console.log(this);

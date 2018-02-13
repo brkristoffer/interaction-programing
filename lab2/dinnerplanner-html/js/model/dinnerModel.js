@@ -5,13 +5,14 @@ var DinnerModel = function(num, type) {
 	// and selected dishes for the dinner menu
   var num = 3;
   var type = [];
+  this.num = 3;
   this.menuDish = [];
   var observers = [];
 
 
 var notifyObservers = function(obj) {
     for(i in observers){
-      console.log(observers[i]);
+    //  console.log(observers[i](this, obj));
           observers[i](this, obj);
  }
 }

@@ -4,8 +4,7 @@ $(function() {
 
 	this.type = "all";
 	this.filter = "";
-	this.id = "bajs";
-	var appid = "1";
+	this.id = "";
 	//this.dishId = "";
 
 	var home = $("#homeView");
@@ -30,13 +29,14 @@ $(function() {
 	var sidebarView = new SidebarView(sidebar, model);
 	var sidebarC = new SidebarController(sidebarView, model, this);
 
+
 	var pageView = new PageView(page, model);
 	var pageC = new PageController(pageView, model, this);
 
-	var dishView = new DishView(dishes, model);
+	var dishView = new DishView(dishes, model, this);
 	var dishC = new DishController(dishView, model, this);
 
-	var dishDetailView = new DishDetailView(dishdetails, model);
+	var dishDetailView = new DishDetailView(dishdetails, model, this);
 	var dishDetailC = new DishDetilsController(dishDetailView, model, this);
 
 	var infoView = new InfoView(infobar, model);
@@ -52,17 +52,18 @@ $(function() {
 		dishdetails.hide();
 		dishes.hide();
 		this.confirmDinner.hide();
+		sidebarView.update();
 
 	}
 
 	this.showDishScreen = function(){
 		dishes.show();
 		dishView.update(this.type, this.filter);
-		dishView.dishId = $("#dishBox a");
+		//dishView.dishId = $("#dishBox a");
 
-		dishView.dishId.on("click", function(){
-			appid = $(this).attr("id");
-		});
+		// dishView.dishId.on("click", function(){
+		// 	appid = $(this).attr("id");
+		// });
 
 
 
@@ -70,9 +71,9 @@ $(function() {
 
 	}
 
-this.showDishDetailsScreen= function(){
+this.showDishDetailsScreen= function(id){
 		//console.log(appid);
-		dishDetailView.update(appid);
+		dishDetailView.update(id);
 		page.hide();
 		sidebar.show();
 		home.hide();
@@ -92,10 +93,10 @@ this.showDishDetailsScreen= function(){
 		dinneroverview.hide();
 		this.confirmDinner.show();
 		confirmDinnernone.hide();
-		dishView.dishId.on("click", function(){
-			appid = $(this).attr("id");
-
-		});
+		// dishView.dishId.on("click", function(){
+		// 	appid = $(this).attr("id");
+    //
+		// });
 		//dishDetailView.update(appid);
 
 		sidebarView.update();
@@ -147,7 +148,7 @@ this.showDinnerPrintOutScreen= function(){
 		infobar.hide();
 		dinneroverview.hide();
 		dinnerprintout.hide();
-		sidebarView.update();
+
 
 		//document.getElementById("startButton").onclick = function (evt) {
 		//	showSelectDishScreen();
