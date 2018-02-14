@@ -1,11 +1,7 @@
 var DishDetailView = function(container, model, app){
 
-
-
-
   this.backtoselectdish = container.find("#backtoselectdish");
   this.addtomenu = container.find("#addtomenu");
-
 
   this.update = function(){
     var dishIngredients = container.find("#dishIngredients");
@@ -15,7 +11,6 @@ var DishDetailView = function(container, model, app){
     var dishDescription = container.find("#dishDescription");
     var numberOfGuestsIngredients = container.find("#numberOfGuestsIngredients");
     var id = app.id;
-      //console.log(app.id);
       var dish = model.getDish(id);
       var dishName = dish.name;
       var dishPrice = model.getDishPrice(id);
@@ -38,16 +33,7 @@ var DishDetailView = function(container, model, app){
         myHTML += "<tr><td>"+quantity+"</td><td>"+name+"</td><td>SEK</td><td>"+price+"</td></tr>";
         dishIngredients.html( myHTML );
       }
-
-   //}
+      
   model.addObserver(this.update);
-
-
-
-
   }
-
-
-
-
 }

@@ -5,7 +5,6 @@ $(function() {
 	this.type = "all";
 	this.filter = "";
 	this.id = "";
-	//this.dishId = "";
 
 	var home = $("#homeView");
 	var page = $("#pageView");
@@ -19,16 +18,12 @@ $(function() {
 	var dinneroverview = $("#dinnerOverView");
 	var dinnerprintout = $("#dinnerPrintOutView");
 	var dinnerOverView = $("#dinnerOverView");
-	//this.dishId = $("#dishBox a");
-
-
 
 	var homeView = new HomeView(home, model);
 	var homeC = new HomeController(homeView, model, this);
 
 	var sidebarView = new SidebarView(sidebar, model);
 	var sidebarC = new SidebarController(sidebarView, model, this);
-
 
 	var pageView = new PageView(page, model);
 	var pageC = new PageController(pageView, model, this);
@@ -59,28 +54,14 @@ $(function() {
 	this.showDishScreen = function(){
 		dishes.show();
 		dishView.update(this.type, this.filter);
-		//dishView.dishId = $("#dishBox a");
-
-		// dishView.dishId.on("click", function(){
-		// 	appid = $(this).attr("id");
-		// });
-
-
-
-
-
 	}
 
 this.showDishDetailsScreen= function(id){
-		//console.log(appid);
 		dishDetailView.update(id);
 		page.hide();
 		sidebar.show();
 		home.hide();
 		dishdetails.show();
-
-
-
 	}
 
 	this.showSelectDishAgainScreen= function(){
@@ -93,17 +74,8 @@ this.showDishDetailsScreen= function(id){
 		dinneroverview.hide();
 		this.confirmDinner.show();
 		confirmDinnernone.hide();
-		// dishView.dishId.on("click", function(){
-		// 	appid = $(this).attr("id");
-    //
-		// });
-		//dishDetailView.update(appid);
 
 		sidebarView.update();
-
-		//var sidebarView = new SidebarView($("#sidebarView"), model);
-
-
 }
 this.showDinnerOverviewScreen= function(){
 		page.hide();
@@ -112,10 +84,8 @@ this.showDinnerOverviewScreen= function(){
 		dishes.hide();
 		infobar.show();
 		dinneroverview.show();
+
 		overView.update();
-		//console.log(dinnerOverView);
-
-
 	}
 
 this.showDinnerPrintOutScreen= function(){
@@ -124,23 +94,7 @@ this.showDinnerPrintOutScreen= function(){
 		dinnerprintout.show();
 
 		var printOutView = new PrintOutView(dinnerprintout, model);
-
 	}
-
-
-	// function showSelectDishScreen(){
-	// var sidebarView = new SidebarView($("#sidebarView"), model);
-	//var pageView = new PageView($("#pageView"), model);
-	// var dishView = new DishView($("#dishView"), model);
-	// }
-	//function showSelectDishScreen(){
-	//var sidebarView = new SidebarView($("#sidebarView"), model);
-
-	// }
-	//var sidebarView = new SidebarView($("#sidebarView"), model);
-
-
-
 
 		page.hide();
 		sidebar.hide();
@@ -148,27 +102,6 @@ this.showDinnerPrintOutScreen= function(){
 		infobar.hide();
 		dinneroverview.hide();
 		dinnerprintout.hide();
-
-
-		//document.getElementById("startButton").onclick = function (evt) {
-		//	showSelectDishScreen();
-
-		//}
-
-
-
-
-	// function sayHello() {
-	//   console.log("hello00");
-	// var pageView = new PageView($("#pageView"), model);
-	//var dishView = new DishView($("#dishView"), model);
-	//}
-
-
-	// And create the instance of ExampleView
-	//var exampleView = new ExampleView($("#exampleView"), model);
-
-
 
 	/**
 	* IMPORTANT: app.js is the only place where you are allowed to

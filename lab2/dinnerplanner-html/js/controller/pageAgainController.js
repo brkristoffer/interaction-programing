@@ -1,4 +1,5 @@
 var PagaAgainController = function (view, model, app) {
+
   view.dropdown.click(function(){
       app.type = $(this).text();
   });

@@ -11,8 +11,8 @@ var DinnerModel = function(num, type) {
 
 
 var notifyObservers = function(obj) {
+  //change for-loop to for(int i, i<...)
     for(i in observers){
-    //  console.log(observers[i](this, obj));
           observers[i](this, obj);
  }
 }
@@ -59,13 +59,13 @@ var notifyObservers = function(obj) {
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
+  //Update to return menu instead of all dishes
 		//TODO Lab 1
     var menuFullArray = [];
     for(dish in dishes){
       menuFullArray.push(dishes[dish]);
     }
     return menuFullArray;
-
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
@@ -83,19 +83,6 @@ var notifyObservers = function(obj) {
    return ingredientsArray;
 	}
 
-//Returns all the ingredients for one dish
-  // this.getAllIngredientsDish = function(id){
-  //   var dishIngredientsArray = [];
-  //   for(dish in dishes){
-  //      for(ingredient in dishes[dish].ingredients){
-  //        if(dishes[dish].id == id){
-  //         dishIngredientsArray.push(dishes[dish].ingredients[ingredient]);
-  //       }
-  //      }
-  //    }
-  //    return dishIngredientsArray;
-  //}
-
   this.getDishPrice = function(id){
     var dishprice = 0;
     for(dish in dishes){
@@ -112,12 +99,7 @@ var notifyObservers = function(obj) {
 	this.getTotalMenuPrice = function() {
 		//TODO Lab 1
     var totprice = 0;
-    // for(dish in dishes){
-    //    for(ingredient in dishes[dish].ingredients){
-    //       totprice += dishes[dish].ingredients[ingredient].price * dishes[dish].ingredients[ingredient].quantity;
-    //
-    //    }
-    //  }
+
     for(i in this.menuDish){
       totprice += this.getDishPrice(this.menuDish[i].id);
     }
@@ -150,8 +132,6 @@ var notifyObservers = function(obj) {
       }
     }
     notifyObservers(this.menuDish);
-
-
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -175,6 +155,26 @@ var notifyObservers = function(obj) {
 	  	return dish.type == type && found;
 	  });
 	}
+
+  this.getAllDishesAv = function(type, filter){
+    return dishes.filter(function(dish) {
+        var found = true;
+        if(filter){
+      found = false;
+      dish.ingredients.forEach(function(ingredient) {
+        if(ingredient.name.indexOf(filter)!=-1) {
+          found = true;
+        }
+      });
+      if(dish.name.indexOf(filter) != -1)
+      {
+        found = true;
+      }
+    }
+      return dish.type == type && found;
+    });
+
+  }
 
 	//function that returns a dish of specific ID
 	this.getDish = function (id) {

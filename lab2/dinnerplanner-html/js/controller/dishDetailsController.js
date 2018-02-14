@@ -5,10 +5,7 @@ var DishDetilsController = function (view, model, app) {
     });
 
   view.addtomenu.click(function(){
-  //  console.log(app.id);
     model.addDishToMenu(app.id);
     app.showSelectDishAgainScreen();
-    //console.log(model.menuDish);
-
   });
 }
