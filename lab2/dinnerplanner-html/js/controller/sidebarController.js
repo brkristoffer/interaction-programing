@@ -1,4 +1,5 @@
 var SidebarController = function (view, model, app) {
+    model.addObserver(view);
 
     view.plusButton.click(function(){
     model.setNumberOfGuests(model.getNumberOfGuests() + 1);

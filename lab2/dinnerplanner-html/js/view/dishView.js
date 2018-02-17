@@ -1,7 +1,8 @@
 var DishView= function (container, model, app) {
 
-  this.update = function(type, filter){
+  this.displayDishes = function(type, filter){
     container.html("");
+    
      if(type == "all"){
        var type = ["starter", "main dish", "dessert"];
        for(j in type){
@@ -25,5 +26,5 @@ var DishView= function (container, model, app) {
        }
      }
  }
- model.addObserver(this.update);
+ //model.addObserver(this.update);
 }

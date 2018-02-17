@@ -6,4 +6,5 @@ var DishItemView= function (container, model, name, image, id) {
     container.append(myHTML);
     this.box = container.find($("#dishBox a"));
 
+
 }

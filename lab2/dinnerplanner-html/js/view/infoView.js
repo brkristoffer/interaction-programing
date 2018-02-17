@@ -1,5 +1,9 @@
 var InfoView = function (container, model) {
 
-  this.overViewName = container.find("#overViewName");
+  var overViewName = container.find("#overViewName");
   this.infoBackToSearch = container.find("#infoBackToSearch");
+
+  this.update = function(){
+    overViewName.html("My dinner: "+ model.getNumberOfGuests()+" people");
+  }
 }

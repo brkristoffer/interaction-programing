@@ -1,29 +1,28 @@
 var SidebarView = function (container, model) {
 
-this.minusButton = container.find("#minusGuest");
-this.plusButton = container.find("#plusGuest");
-
-this.update = function(){
+  this.minusButton = container.find("#minusGuest");
+  this.plusButton = container.find("#plusGuest");
   var numberOfGuests = container.find("#numberOfGuests");
-  var totSek = container.find("#sekTot");
-  var menuDish = container.find("#menuDish");
-
   numberOfGuests.html(model.getNumberOfGuests());
-  totSek.html(model.getTotalMenuPrice());
-  //this.displayMenu();
 
-  //this.displayMenu = function(){
+  this.update = function(){
+    var totSek = container.find("#sekTot");
+    var menuDish = container.find("#menuDish");
+    numberOfGuests.html(model.getNumberOfGuests());
+    var num = model.getNumberOfGuests();
     var menuDish = container.find("#menuDish");
     var myHTML = '';
+    var totMenuPrice = 0;
 
-    for(i in model.menuDish){
-      var dishName = model.menuDish[i].name;
-      var dishPrice = model.getDishPrice(model.menuDish[i].id);
+    var menu = model.getFullMenu();
+    for(i in menu){
+      var dish = menu[i];
+      var dishName = dish.name;
+      var dishPrice = model.getDishPrice(dish.ingredients);
+      totMenuPrice += dishPrice;
       myHTML += '<li><div class="col-xs-8" style="font-size: 8pt;">'+dishName+'</div></li><li><div class="col-xs-4" style="font-size: 8pt;">'+dishPrice+'</div></li>'
       menuDish.html(myHTML);
+      totSek.html(totMenuPrice + " SEK");
     }
-}
-
-//console.log(this.update);
-model.addObserver(this.update);
+  }
 }

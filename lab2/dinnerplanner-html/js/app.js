@@ -4,7 +4,7 @@ $(function() {
 
 	this.type = "all";
 	this.filter = "";
-	this.id = "";
+	this.id = "bajs";
 
 	var home = $("#homeView");
 	var page = $("#pageView");
@@ -31,7 +31,7 @@ $(function() {
 	var dishView = new DishView(dishes, model, this);
 	var dishC = new DishController(dishView, model, this);
 
-	var dishDetailView = new DishDetailView(dishdetails, model, this);
+	var dishDetailView = new DishDetailView(dishdetails, model);
 	var dishDetailC = new DishDetilsController(dishDetailView, model, this);
 
 	var infoView = new InfoView(infobar, model);
@@ -40,6 +40,9 @@ $(function() {
 	var overView = new OverView(dinnerOverView, model);
 	var overViewC = new OverViewController(overView, model, this);
 
+	var printOutView = new PrintOutView(dinnerprintout, model);
+
+
 	this.showSelectDishScreen = function(){
 		page.show();
 		sidebar.show();
@@ -47,21 +50,22 @@ $(function() {
 		dishdetails.hide();
 		dishes.hide();
 		this.confirmDinner.hide();
-		sidebarView.update();
+
 
 	}
 
 	this.showDishScreen = function(){
 		dishes.show();
-		dishView.update(this.type, this.filter);
+		dishView.displayDishes(this.type, this.filter);
+
 	}
 
-this.showDishDetailsScreen= function(id){
-		dishDetailView.update(id);
+this.showDishDetailsScreen= function(){
 		page.hide();
 		sidebar.show();
 		home.hide();
 		dishdetails.show();
+		dishDetailView.displayDish();
 	}
 
 	this.showSelectDishAgainScreen= function(){
@@ -75,7 +79,6 @@ this.showDishDetailsScreen= function(id){
 		this.confirmDinner.show();
 		confirmDinnernone.hide();
 
-		sidebarView.update();
 }
 this.showDinnerOverviewScreen= function(){
 		page.hide();
@@ -85,7 +88,6 @@ this.showDinnerOverviewScreen= function(){
 		infobar.show();
 		dinneroverview.show();
 
-		overView.update();
 	}
 
 this.showDinnerPrintOutScreen= function(){
@@ -93,7 +95,6 @@ this.showDinnerPrintOutScreen= function(){
 		dinneroverview.hide();
 		dinnerprintout.show();
 
-		var printOutView = new PrintOutView(dinnerprintout, model);
 	}
 
 		page.hide();
