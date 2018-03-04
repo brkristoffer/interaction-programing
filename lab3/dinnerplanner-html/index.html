@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dinner planner</title>
+<link href='https://fonts.googleapis.com/css?family=Sacramento' rel='stylesheet'>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">-->
+</head>
+<body>
+  <div class="jumbotron">
+    <h1 id="jumbotitle"style="text-align:center; font-family:Sacramento;">Dinner planner</h1>
+  </div>
+
+  <!--HomwView-->
+  <div id=homeView class="col-sm-12">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4" style="text-align: center; margin-top: 5%;">
+      <p style="">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquio ex ea commodo consequat.</p>
+      <br>
+      <button id="startButton" type="button"class="btn btn-warning">Create new dinner</button>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
+
+  <!--SidebarView-->
+  <div id="sidebarView" class="col-sm-3">
+    <div class="sidebar-nav">
+      <div class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-navbar-collapse">
+            <span class="glyphicon glyphicon-menu-hamburger"></span>
+          </button>
+          <span class="visible-xs navbar-brand">My dinner</span>
+        </div>
+        <div class="navbar-collapse collapse sidebar-navbar-collapse">
+          <ul class="nav nav nav-stacked">
+
+            <li class="active">
+              <h4>Number of guests:</h4>
+              <div class="input-group number-spinner col-xs-1 left">
+                <span class="input-group-addon"id="numberOfGuests"></span>
+
+                <span class="input-group-btn">
+                  <button id="minusGuest" type="button"class="btn btn-default" ><span class="glyphicon glyphicon-minus"></span></button>
+                </span>
+                <span class="input-group-btn">
+                  <button id="plusGuest" type="button"class="btn btn-default" ><span class="glyphicon glyphicon-plus"></span></button>
+                </span>
+              </div>
+            </li>
+            <br></br>
+            <div class="col-xs-12" style="background-color:lightgrey;">
+              <div class="col-xs-8" style="font-size: 8pt;">Dish name</div>
+              <div class="col-xs-4" style="font-size: 8pt;">Cost</div>
+            </div>
+            <li>
+              <div class="col-xs-12" id="menuDish"></div>
+            </li>
+            <br></br>
+            <div class="col-xs-8"></div>
+            <div class="col-xs-4" id="sekTot"></div>
+            <br></br>
+            <button id="confirmDinnernone"type="button"class="btn btn-default col-xs-12">Confirm dinner</button>
+            <button id="confirmDinner"type="button"class="btn btn-warning col-xs-12">Confirm dinner</button>
+            <br></br>
+            <br></br>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--PageView-->
+  <div id="pageView">
+    <div class="col-sm-9">
+      <h4>Find a dish</h4>
+      <div class="input-group col-xs-12">
+        <input id="searchFilter" type="text" class="form-control" placeholder="Search for...">
+        <span class="input-group-btn">
+          <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#">Type of dish <span class="caret"></span></a>
+          <ul class="dropdown-menu" id="dropdown-menu-page">
+            <li><a href="#" >all</a></li>
+            <li><a href="#" >antipasti</a></li>
+            <li><a href="#" >beverage</a></li>
+            <li><a href="#" >breakfast</a></li>
+            <li><a href="#" >brunch</a></li>
+            <li><a href="#" >condiment</a></li>
+            <li><a href="#" >dessert</a></li>
+            <li><a href="#" >dip</a></li>
+            <li><a href="#" >drink</a></li>
+            <li><a href="#" >starter</a></li>
+            <li><a href="#" >main dish</a></li>
+            <li><a href="#" >morning meal</a></li>
+            <li><a href="#" >salad</a></li>
+            <li><a href="#" >snack</a></li>
+            <li><a href="#" >side dish</a></li>
+            <li><a href="#" >side dish</a></li>
+          </ul>
+          <button id="searchDish" type="button"class="btn btn-default">Search</button>
+        </span>
+      </div>
+      <br></br>
+
+      <!--DishView-->
+      <div id="dishView">
+      </div>
+
+    </div>
+  </div>
+
+  <!--DishDetailView-->
+  <div id="dishDetailView" class="col-sm-9">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+        <div class="panel panel-default">
+          <div class="panel-body"><h3 id="dishNameBox"></h3></div>
+        </div>
+        <a id="img" href='#' class='thumbnail'>
+        </a>
+        <button id="backtoselectdish"type="button"class="btn btn-warning col-xs-6">Back to search</button>
+        <br></br>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div class="panel panel-warning">
+          <div id="numberOfGuestsIngredients"class="panel-heading">  Ingredients for </div>
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Amount</th>
+                <th>Ingredient</th>
+                <th></th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody id="dishIngredients">
+            </tbody>
+          </table>
+          <hr>
+          <div class="footer">
+            <button id="addtomenu"type="button"class="btn btn-warning col-xs-6">Add to menu</button>
+            <div id="totCostDish" class="col-xs-6" style="text-align:right;"> </div>
+          </div>
+          <br>
+          <br>
+          <br>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading"><h3 id="headingName"class="panel-title"></h3></div>
+      <div id="dishDescription"class="panel-body">
+      </div>
+    </div>
+  </div>
+
+  <!--InfoBarView-->
+  <div id="infoBarView" class="col-xs-12">
+    <div class="row">
+      <div class="col-xs-6">
+        <h2 id="overViewName"></h2>
+      </div>
+      <div class="col-xs-12 col-xs-6">
+        <br>
+        <button id="infoBackToSearch"type="button"class="btn btn-warning" style="float: right;">Back to search</button>
+      </div>
+    </div>
+  </div>
+
+  <!--DinnerOverView-->
+  <div id="dinnerOverView" class="col-xs-12">
+    <div class="row">
+      <div class="col-sm-12">
+        <hr>
+      </div>
+      <div class="col-sm-3">
+      </div>
+      <div id="overViewSpan" class="col-sm-6">
+      </div>
+      <div class="col-sm-3">
+        <div class="col-sm-11">
+          <span>Total:</span>
+          <span id="totMenuPrice"> </span>
+        </div>
+        <div class="col-sm-1">
+        </div>
+      </div>
+    </div>
+    <hr>
+    <div class="col-sm-12" style="text-align: center;">
+      <button id="printFullRecipe"type="button" class="btn btn-warning">Print Full Recipe</button>
+    </div>
+  </div>
+
+  <!--DinnerPrintOutViw-->
+  <div id="dinnerPrintOutView" class="col-xs-12">
+    <hr>
+  </div>
+
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery.js"></script>
+  <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+  <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+  <!-- The application JavaScript code -->
+  <script src="js/app.js"></script>
+  <script src="js/model/dinnerModel.js"></script>
+  <script src="js/view/sidebarView.js"></script>
+  <script src="js/view/pageView.js"></script>
+  <script src="js/view/dishView.js"></script>
+  <script src="js/view/dishItemView.js"></script>
+  <script src="js/view/dishDetailView.js"></script>
+  <script src="js/view/homeView.js"></script>
+  <script src="js/view/overView.js"></script>
+  <script src="js/view/infoView.js"></script>
+  <script src="js/view/printOutView.js"></script>
+  <script src="js/controller/homeController.js"></script>
+  <script src="js/controller/dishController.js"></script>
+  <script src="js/controller/dishDetailsController.js"></script>
+  <script src="js/controller/sidebarController.js"></script>
+  <script src="js/controller/pageController.js"></script>
+  <script src="js/controller/overViewController.js"></script>
+  <script src="js/controller/infoController.js"></script>'
+  <script src="js/controller/dishItemController.js"></script>
+
+
+</body>
+</html>
