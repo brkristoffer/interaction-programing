@@ -18,8 +18,8 @@ var SidebarView = function (container, model) {
     for(i in menu){
       var dish = menu[i];
       var dishName = dish.title;
-    var dishPrice = "0";//model.getDishPrice(dish.ingredients);
-      //totMenuPrice += dishPrice;
+      var dishPrice = model.getDishPrice(dish.extendedIngredients);
+      totMenuPrice += dishPrice;
       myHTML += '<li><div class="col-xs-8" style="font-size: 8pt;">'+dishName+'</div></li><li><div class="col-xs-4" style="font-size: 8pt;">'+dishPrice+'</div></li>'
       menuDish.html(myHTML);
       totSek.html(totMenuPrice + " SEK");

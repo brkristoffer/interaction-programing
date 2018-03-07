@@ -9,7 +9,7 @@ var DinnerModel = function(num, type) {
   var observers = [];
   var modelId = '1';
   var menu = [];
-  var currentDish = [];
+  var currentDish;
 
 
   var notifyObservers = function(obj) {
@@ -60,17 +60,17 @@ var DinnerModel = function(num, type) {
   }
 
   this.setCurrentDish = function(id){
+    this.getDish(id, function(dish) {
+ 			currentDish = dish;
+ 			notifyObservers();
+ 		});
 
-    this.getDish(id, function(dish){
-
-      currentDish.push(dish);
-    });
-    notifyObservers();
-    //console.log(notifyObservers(id));
   }
 
   this.getCurrentDish = function(id){
-    return currentDish.pop();
+    //console.log(currentDish.pop());
+    return currentDish;
+
   }
 
   //Returns the dish that is on the menu for selected type
@@ -94,7 +94,7 @@ var DinnerModel = function(num, type) {
   this.getDishPrice = function(ingredients){
     var dishprice = 0;
     for(i in ingredients){
-      dishprice += ingredients[i].price;
+      dishprice += ingredients[i].amount;
     }
     return dishprice*num;
   }

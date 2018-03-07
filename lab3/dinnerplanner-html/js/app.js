@@ -65,7 +65,7 @@ this.showDishDetailsScreen= function(){
 		sidebar.show();
 		home.hide();
 		dishdetails.show();
-		//dishDetailView.displayDish();
+		dishDetailView.displayDish();
 	}
 
 	this.showSelectDishAgainScreen= function(){
